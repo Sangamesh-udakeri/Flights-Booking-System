@@ -9,5 +9,6 @@ public class AirportRequest {
 	private String address;
 	private String code;
 	private Long cityId;
+	
 
 }

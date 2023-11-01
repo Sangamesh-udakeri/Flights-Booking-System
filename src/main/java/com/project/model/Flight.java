@@ -1,6 +1,7 @@
 package com.project.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import jakarta.persistence.CascadeType;
@@ -20,7 +21,7 @@ import lombok.Data;
 @Table(name = "FLIGHT")
 public class Flight {
 
-	 @Id
+	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    private String flightNumber;
@@ -36,9 +37,11 @@ public class Flight {
 	    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	    @JoinColumn(name = "arrival_airport_id")
 	    private Airport arrivalAirport;
-
+	    private Double price;
 	    private LocalTime departureTime;
 	    private LocalTime arrivalTime;
+	    private LocalDate departureDate;
+	    private LocalDate arrivalDate;
 	    private String boardingGate;
 	    private Integer totalSeats;
 	    private Timestamp createdAt;

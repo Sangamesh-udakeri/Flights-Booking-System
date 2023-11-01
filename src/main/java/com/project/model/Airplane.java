@@ -19,7 +19,7 @@ public class Airplane {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String modelNumber;
 	private Integer capacity;
 	private Date createdAt;

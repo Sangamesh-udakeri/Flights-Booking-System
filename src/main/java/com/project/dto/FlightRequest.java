@@ -17,6 +17,7 @@ public class FlightRequest {
 	private LocalTime departureTime;
 	private Integer arrivalAirport;
 	private LocalTime arrivalTime;
+	private Double price;
 	private String boardingGate;
 	private Integer totalSeats;
 	private Timestamp createdAt;
