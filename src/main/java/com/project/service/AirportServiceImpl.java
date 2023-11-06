@@ -26,7 +26,7 @@ public class AirportServiceImpl implements Airportservice {
 	}
 
 	@Override
-	public Airport getAirport(Integer id) {
+	public Airport getAirport(Long id) {
 		 Optional<Airport> findById = airportRepository.findById(id);
 		 if(!findById.isPresent()) {
 			 

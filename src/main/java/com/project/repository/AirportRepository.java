@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface AirportRepository extends JpaRepository<Airport, Integer> {
+public interface AirportRepository extends JpaRepository<Airport, Long> {
 
 	List<Airport>  getAirportByCode(String code);
 	 @Query("SELECT a\r\n"

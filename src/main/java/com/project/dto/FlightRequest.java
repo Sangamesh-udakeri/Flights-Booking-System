@@ -12,10 +12,10 @@ import lombok.Data;
 public class FlightRequest {
 
 	private Long airplaneId;
-	private Integer departureAirport;
+	private Long departureAirport;
 	private String flightNumber;
 	private LocalTime departureTime;
-	private Integer arrivalAirport;
+	private Long arrivalAirport;
 	private LocalTime arrivalTime;
 	private Double price;
 	private String boardingGate;

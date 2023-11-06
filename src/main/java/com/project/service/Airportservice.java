@@ -11,7 +11,7 @@ public interface Airportservice {
 
 	Airport addAirport(Airport airport);
 	Airport updateAirport(Airport airport);
-	Airport getAirport(Integer long1);
+	Airport getAirport(Long id);
 	List<Airport> getAirportsByCity(String city);
 	
 }

@@ -11,11 +11,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.dto.FlightRequest;
 import com.project.dto.FlightResponse;
+import com.project.dto.SeatBook;
+import com.project.dto.SeatData;
 import com.project.dto.UserInput;
 import com.project.exception.FlightNotFoundException;
 import com.project.model.Airplane;
@@ -77,7 +80,7 @@ public class FlightController {
 	}
 	
 	@GetMapping("/flights/{id}")
-	public ResponseEntity<FlightResponse> getById(@PathVariable  Integer id) throws FlightNotFoundException{
+	public ResponseEntity<FlightResponse> getById(@PathVariable  Long id) throws FlightNotFoundException{
 		FlightResponse flightResponse=new FlightResponse();
 	 Flight flight = flightService.getFlightById(id).get();
 		if(flight==null) {
@@ -104,6 +107,10 @@ public class FlightController {
 	    List<FlightResponse> flightsByFilter = flightService.getFlightsByFilter(userInput);
 	    return new ResponseEntity<>(flightsByFilter, HttpStatus.OK);
 	}
-	
+	@PutMapping("/updateSeats")
+	public ResponseEntity< String> updateSeats(@RequestBody SeatData data) {
+	    String updateSeats = flightService.updateSeats(data);
+	    return new ResponseEntity<>(updateSeats, HttpStatus.OK);
+	}
 	
 }

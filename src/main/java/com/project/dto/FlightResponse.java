@@ -15,7 +15,6 @@ public class FlightResponse {
 	private City arrivalAirportCity;
 	private String departureAirortCode;
 	private String arrivalAirortCode;
-	
 	private Airport departureAirport;
 	private Double price;
 	private Airport arrivalAirport;

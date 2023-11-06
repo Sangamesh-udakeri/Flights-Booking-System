@@ -6,15 +6,20 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.dto.AirplaneRequest;
 import com.project.exception.AirplaneNotFoundException;
 import com.project.model.Airplane;
+import com.project.model.Seat;
 import com.project.repository.AirplaneRepostitory;
+import com.project.repository.SeatRepository;
 
 @Service
 public class AirplaneServiceImpl implements AirplaneService {
 
 	@Autowired
 	AirplaneRepostitory airplaneRepostitory;
+	@Autowired
+	SeatRepository seatRepository;
 
 	@Override
 	public List<Airplane> getAirplanes() {
@@ -25,6 +30,7 @@ public class AirplaneServiceImpl implements AirplaneService {
 	@Override
 	public Airplane getAirplane(Long id) {
 		Optional<Airplane> findById = airplaneRepostitory.findById(id);
+
 		if (!findById.isPresent()) {
 
 			throw new AirplaneNotFoundException("Could not Find Airplane by id");
@@ -52,8 +58,8 @@ public class AirplaneServiceImpl implements AirplaneService {
 
 	@Override
 	public String createAirplane(Airplane airplane) {
-		airplaneRepostitory.save(airplane);
-		return "saved";
+    	airplaneRepostitory.save(airplane);
+    	return "saved";
 	}
 
 }

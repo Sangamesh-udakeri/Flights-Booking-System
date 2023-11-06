@@ -2,6 +2,7 @@ package com.project.service;
 
 import java.util.List;
 
+import com.project.dto.AirplaneRequest;
 import com.project.model.Airplane;
 
 public interface AirplaneService {
